@@ -4,7 +4,9 @@ import { ScrollView, View, StyleSheet, FlatList } from "react-native";
 import { Card, Button, Input, Header } from "react-native-elements";
 import { Entypo } from "@expo/vector-icons";
 import { AuthContext } from "../providers/AuthProvider";
-import PostCard from "./../components/PostCard";
+
+import HeaderHome from "./../components/Header";
+
 
 
 
@@ -22,6 +24,11 @@ const HomeScreen = (props) => {
       {(auth) => (
         <View style={styles.viewStyle}>
           
+          <HeaderHome
+            DrawerFunction={() => {
+              props.navigation.toggleDrawer();
+            }}
+          />
 
           <Card>
             <Input
