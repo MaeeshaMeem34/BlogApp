@@ -5,6 +5,8 @@ import { FontAwesome, Feather, AntDesign } from "@expo/vector-icons";
 import { AuthContext } from "../providers/AuthProvider";
 
 import * as firebase from "firebase";
+import "firebase/firestore";
+
 const SignInScreen = (props) => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");

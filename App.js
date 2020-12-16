@@ -8,6 +8,7 @@ import SignUpScreen from "./src/screens/SignUpScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import NotificationScreen from "./src/screens/NotificationScreen";
+import PostScreen from "./src/screens/PostScreen";
 
 import { AuthContext, AuthProvider } from "./src/providers/AuthProvider";
 import * as firebase from "firebase";
@@ -38,12 +39,31 @@ const AuthStack = createStackNavigator();
 const HomeTab = createMaterialBottomTabNavigator();
 const AppDrawer = createDrawerNavigator();
 
+
+const PostStack = createStackNavigator();
+const PostStackScreen = () => {
+  return (
+    <PostStack.Navigator initialRouteName="Home">
+      <PostStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <PostStack.Screen
+        name="Post"
+        component={PostScreen}
+        options={{ headerShown: false }}
+      />
+    </PostStack.Navigator>
+  );
+};
+
 const HomeTabScreen = () => {
   return (
     <HomeTab.Navigator>
       <HomeTab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="Post2"
+        component={PostStackScreen}
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ focused }) =>
@@ -107,6 +127,8 @@ const AppDrawerScreen = () => {
     </AppDrawer.Navigator>
   );
 };
+
+
 
 const AuthStackScreen = () => {
   return (
