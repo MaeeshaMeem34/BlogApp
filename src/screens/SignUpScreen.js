@@ -59,8 +59,8 @@ const SignUpScreen = (props) => {
                   userCreds.user.updateProfile({ displayName: Name });
                   firebase
                     .firestore()
-                    .collection('users')
-                  
+                    .collection("users")
+
                     .doc(userCreds.user.uid)
                     .set({
                       name: Name,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet} from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Text, Card, Button, Avatar, Header } from "react-native-elements";
 
 import { AuthContext } from "../providers/AuthProvider";
@@ -10,7 +10,7 @@ const NotificationScreen = (props) => {
     <AuthContext.Consumer>
       {(auth) => (
         <View style={styles.viewStyle}>
-           <HeaderHome
+          <HeaderHome
             DrawerFunction={() => {
               props.navigation.toggleDrawer();
             }}

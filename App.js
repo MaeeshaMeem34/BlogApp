@@ -21,7 +21,6 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 
-
 var firebaseConfig = {
   apiKey: "AIzaSyDCNNstHj-lnVelo0rrV3njROv6To_yjqA",
   authDomain: "blogapp-3b450.firebaseapp.com",
@@ -29,16 +28,15 @@ var firebaseConfig = {
   projectId: "blogapp-3b450",
   storageBucket: "blogapp-3b450.appspot.com",
   messagingSenderId: "181137906320",
-  appId: "1:181137906320:web:8580b3e1f3099cc80d1615"
+  appId: "1:181137906320:web:8580b3e1f3099cc80d1615",
 };
-if(!firebase.apps.length){
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
 }
 
 const AuthStack = createStackNavigator();
 const HomeTab = createMaterialBottomTabNavigator();
 const AppDrawer = createDrawerNavigator();
-
 
 const PostStack = createStackNavigator();
 const PostStackScreen = () => {
@@ -62,10 +60,10 @@ const HomeTabScreen = () => {
   return (
     <HomeTab.Navigator>
       <HomeTab.Screen
-        name="Post2"
+        name="Post"
         component={PostStackScreen}
         options={{
-          tabBarLabel: "Home",
+        
           tabBarIcon: ({ focused }) =>
             focused ? (
               <Entypo name="home" color="white" size={26} />
@@ -128,8 +126,6 @@ const AppDrawerScreen = () => {
   );
 };
 
-
-
 const AuthStackScreen = () => {
   return (
     <AuthStack.Navigator initialRouteName="SignIn">
@@ -153,7 +149,7 @@ function App() {
       <AuthContext.Consumer>
         {(auth) => (
           <NavigationContainer>
-            {auth.IsLoggedIn ? <AppDrawerScreen  /> : <AuthStackScreen />}
+            {auth.IsLoggedIn ? <AppDrawerScreen /> : <AuthStackScreen />}
           </NavigationContainer>
         )}
       </AuthContext.Consumer>

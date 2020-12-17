@@ -13,7 +13,7 @@ const ProfileScreen = (props) => {
     <AuthContext.Consumer>
       {(auth) => (
         <SafeAreaView style={styles.container}>
-           <HeaderHome
+          <HeaderHome
             DrawerFunction={() => {
               props.navigation.toggleDrawer();
             }}
@@ -21,7 +21,6 @@ const ProfileScreen = (props) => {
 
           <View style={styles.userInfoSection}>
             <View style={{ flexDirection: "row", marginTop: 15 }}>
-             
               <View style={{ marginLeft: 20 }}>
                 <Title
                   style={[
@@ -33,7 +32,7 @@ const ProfileScreen = (props) => {
                     },
                   ]}
                 >
-                  {auth.CurrentUser.name}
+                  {auth.CurrentUser.displayName}
                 </Title>
               </View>
             </View>
@@ -75,18 +74,7 @@ const ProfileScreen = (props) => {
               justifyContent: "center",
               paddingTop: 100,
             }}
-          >
-            <Button
-              type="solid"
-              icon={<AntDesign name="deleteuser" size={24} color="black" />}
-              title=" Delete Profile"
-              onPress={function () {
-               
-                auth.setIsLoggedIn(false);
-                auth.setCurrentUser({});
-              }}
-            />
-          </View>
+          ></View>
         </SafeAreaView>
       )}
     </AuthContext.Consumer>

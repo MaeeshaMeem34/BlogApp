@@ -41,18 +41,16 @@ const SignInScreen = (props) => {
               type="solid"
               onPress={() => {
                 firebase
-                .auth()
-                .signInWithEmailAndPassword(Email, Password)
-                .then((userCreds) => {
-                 
-                  auth.setIsLoggedIn(true);
-                  auth.setCurrentUser(userCreds.user);
-                  props.navigation.navigate("Home");
-                })
-                .catch((error) => {
-                
-                  alert(error);
-                });
+                  .auth()
+                  .signInWithEmailAndPassword(Email, Password)
+                  .then((userCreds) => {
+                    auth.setIsLoggedIn(true);
+                    auth.setCurrentUser(userCreds.user);
+                    props.navigation.navigate("Home");
+                  })
+                  .catch((error) => {
+                    alert(error);
+                  });
               }}
             />
 
