@@ -25,7 +25,7 @@ const NewPost = ({user,props}) => {
             <Button
               title="Post"
               type="outline"
-              onPress={function () {
+              onPress={async ()=> {
                 firebase
                   .firestore()
                   .collection("posts")
@@ -33,6 +33,7 @@ const NewPost = ({user,props}) => {
                     userId: user.uid,
                     body: Post,
                     name: user.displayName,
+                    email: user.email,
                     created_at: firebase.firestore.Timestamp.now(),
                     likes:0,
                     comments: [],

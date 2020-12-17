@@ -63,7 +63,7 @@ const HomeTabScreen = () => {
         name="Post"
         component={PostStackScreen}
         options={{
-        
+          tabBarLabel: "Home",
           tabBarIcon: ({ focused }) =>
             focused ? (
               <Entypo name="home" color="white" size={26} />
