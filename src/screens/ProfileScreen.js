@@ -1,10 +1,10 @@
 import React from "react";
-import { Title, Text, T } from "react-native-paper";
+import { Title, Text } from "react-native-paper";
 import { View, StyleSheet, SafeAreaView, Image } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { FontAwesome, AntDesign } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 
-import { Button, Header } from "react-native-elements";
 import { AuthContext } from "../providers/AuthProvider";
 import HeaderHome from "./../components/Header";
 
@@ -20,25 +20,17 @@ const ProfileScreen = (props) => {
           />
 
           <View style={styles.userInfoSection}>
-            <View style={{ flexDirection: "row", marginTop: 15 }}>
-              <View style={{ marginLeft: 20 }}>
-                <Title
-                  style={[
-                    styles.title,
-                    {
-                      marginTop: 50,
-
-                      marginBottom: 5,
-                    },
-                  ]}
-                >
-                  {auth.CurrentUser.displayName}
-                </Title>
-              </View>
+            <View style={styles.row}>
+              <MaterialIcons
+                name="face-retouching-natural"
+                size={24}
+                color="#777777"
+              />
+              <Text style={{ color: "#777777", marginLeft: 20, fontSize: 20 }}>
+                {auth.CurrentUser.displayName}
+              </Text>
             </View>
-          </View>
 
-          <View style={styles.userInfoSection}>
             <View style={styles.row}>
               <FontAwesome name="birthday-cake" size={24} color="#777777" />
               <Text style={{ color: "#777777", marginLeft: 20, fontSize: 20 }}>
@@ -66,15 +58,6 @@ const ProfileScreen = (props) => {
               </Text>
             </View>
           </View>
-
-          <View
-            style={{
-              flexDirection: "row",
-              flex: 1,
-              justifyContent: "center",
-              paddingTop: 100,
-            }}
-          ></View>
         </SafeAreaView>
       )}
     </AuthContext.Consumer>
@@ -91,7 +74,7 @@ const styles = StyleSheet.create({
   },
   userInfoSection: {
     paddingHorizontal: 30,
-    marginBottom: 25,
+    marginTop: 50,
   },
   container: {
     flex: 1,

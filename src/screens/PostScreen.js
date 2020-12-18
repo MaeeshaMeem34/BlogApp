@@ -7,18 +7,10 @@ import {
   SafeAreaView,
 } from "react-native";
 
-import {
-  Card,
-  Button,
-  Text,
-  Avatar,
-  Input,
-  Header,
-} from "react-native-elements";
+import { Text, Avatar } from "react-native-elements";
 
 import { AuthContext } from "../providers/AuthProvider";
 
-import { Entypo } from "@expo/vector-icons";
 import * as firebase from "firebase";
 import "firebase/firestore";
 import CommentCard from "./../components/CommentCard";
@@ -28,7 +20,7 @@ import HeaderHome from "../components/Header";
 const PostScreen = ({ navigation, route }) => {
   let info = route.params.id;
 
-  const [Post, setPosts] = useState({});
+  const [Post, setPosts] = useState([]);
   const [Comments, setComments] = useState([]);
 
   const getPostDetails = async () => {
@@ -87,8 +79,7 @@ const PostScreen = ({ navigation, route }) => {
             }}
           />
           <SafeAreaView style={styles.AreaviewStyle}>
-          <ScrollView>
-            
+            <ScrollView>
               <View
                 style={{
                   flexDirection: "row",
@@ -102,7 +93,6 @@ const PostScreen = ({ navigation, route }) => {
                   activeOpacity={1}
                 />
                 <Text h4Style={{ padding: 10, color: "#687CE1" }} h4>
-                  
                   {Post.name}
                 </Text>
               </View>
@@ -121,9 +111,7 @@ const PostScreen = ({ navigation, route }) => {
                 }}
                 keyExtractor={(item, index) => index.toString()}
               />
-            
-          </ScrollView>
-
+            </ScrollView>
           </SafeAreaView>
         </View>
       )}
@@ -142,8 +130,7 @@ const styles = StyleSheet.create({
   AreaviewStyle: {
     flex: 1,
 
- padding:8
-  
+    padding: 8,
   },
 });
 

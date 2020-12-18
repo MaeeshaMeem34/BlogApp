@@ -60,7 +60,7 @@ const HomeTabScreen = () => {
   return (
     <HomeTab.Navigator>
       <HomeTab.Screen
-        name="Post"
+        name="Post2"
         component={PostStackScreen}
         options={{
           tabBarLabel: "Home",

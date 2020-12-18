@@ -16,14 +16,12 @@ import { AuthContext } from "../providers/AuthProvider";
 
 import * as firebase from "firebase";
 import "firebase/firestore";
+import { LogBox } from "react-native";
 
 const HomeScreen = (props) => {
-  console.log(props)
-  
+  console.log(props);
 
   const [posts, setPosts] = useState([]);
-
- 
 
   const loadPosts = async () => {
     firebase
@@ -39,14 +37,12 @@ const HomeScreen = (props) => {
           });
         });
         setPosts(temp_posts);
-      })
-      .catch((error) => {
-        alert(error);
       });
   };
 
   useEffect(() => {
     loadPosts();
+    LogBox.ignoreLogs(["Possible unhandled promise rejection"]);
   }, []);
 
   return (
@@ -58,22 +54,15 @@ const HomeScreen = (props) => {
               props.navigation.toggleDrawer();
             }}
           />
-          <Text > welcome {auth.CurrentUser.displayName} </Text>
-          <NewPost user={auth.CurrentUser}  props={props}/>
+
+          <NewPost user={auth.CurrentUser} props={props} />
 
           <FlatList
             data={posts}
             renderItem={({ item }) => {
-              return (
-                <PostCard
-                content = {item}
-                props={props}
-                />
-              
-              );
-             
+              return <PostCard content={item} props={props} />;
             }}
-            keyExtractor= {(item,index) => index.toString()}
+            keyExtractor={(item, index) => index.toString()}
           />
         </View>
       )}
